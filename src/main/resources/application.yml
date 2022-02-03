@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+
+slack:
+  api:
+    token: x-aaaafo5fh7fjk7esveb7w7lgie@lotteon.org.slack.com
+    channel: C0304U2GH53
+    hookurl: https://hooks.slack.com/services/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
