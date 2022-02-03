@@ -12,7 +12,7 @@ public class App {
 		System.out.println( template.toString() ) ;
 		
 		ITemplate template2 = new ITemplate.Fake( );
-		template2.rate("dkfdslk");
+		template2.rate("뭐지");
 		
 		int result = new ITemplate.Smart( template  )
 				.strToInt("888");

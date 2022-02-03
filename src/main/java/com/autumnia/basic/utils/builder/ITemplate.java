@@ -13,7 +13,7 @@ public interface ITemplate {
 		@Override
 		public void rate(String target) {
 			// TODO Auto-generated method stub
-			System.out.println( "rate 출력");
+			System.out.println( String.format("Fake rate: %s", target));
 			
 		}
 	}
