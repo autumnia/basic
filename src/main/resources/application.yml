@@ -1,7 +1,67 @@
 server:
   port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+  tomcat:
+    uri-encoding: UTF-8
 
+logging:
+  file:
+    path: logs
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} 처리시간:%r 로그레벨:%p 파일명:%F %n 클래스명:%C 함수명:%M 라인수:%L %n 메시지 ==> %m %n%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} 처리시간:%r 로그레벨:%p 파일명:%F %n 클래스명:%C 함수명:%M 라인수:%L %n 메시지 ==> %m %n%n'
+  level:
 
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: architecture-service
+  profiles:
+    active: dev
+  devtools:
+    livereload:
+      enabled: true
+  output:
+    ansi.enabled: always
+  messages:
+    basename: messages
+#  security:
+#    user:
+#      name: autumn
+#      password: fall0823
+
+# database
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:D:/data/"{{.Values.application.name}}"
+    username: sa
+    password: null
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop # drop -> create -> alter  -> drop(종료)
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+
+# actuator 용도
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 기타
 slack:
   api:
     token: x-aaaafo5fh7fjk7esveb7w7lgie@lotteon.org.slack.com
